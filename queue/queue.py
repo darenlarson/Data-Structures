@@ -1,15 +1,34 @@
 class Queue:
   def __init__(self):
     self.size = 0
-    # what data structure should we
-    # use to store queue elements?
-    self.storage = 
+    self.storage = []
 
   def enqueue(self, item):
-    pass
+    self.storage = [item] + self.storage
+    self.size += 1
   
   def dequeue(self):
-    pass
+    if len(self.storage) > 0:
+      removed_item = self.storage.pop()
+      self.size -= 1
+      return removed_item
+      
+    return None
 
   def len(self):
-    pass
+    return self.size
+
+
+
+testQueue = Queue()
+testQueue.enqueue('daren')
+testQueue.enqueue('jack')
+testQueue.enqueue('jill')
+
+print("testQueue:", testQueue)
+print("testQueue.storage:", testQueue.storage)
+print("testQueue.size:", testQueue.size)
+
+testQueue.dequeue()
+
+print("testQueue.storage after dequeue:", testQueue.storage)
