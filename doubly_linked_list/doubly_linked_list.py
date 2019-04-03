@@ -19,7 +19,7 @@ class ListNode:
   before this node. Note that this node could already
   have a previous node it is point to."""
   def insert_before(self, value):
-    current_prev = self.prev
+    current_prev = self.prev=1
     self.prev = ListNode(value, current_prev, self)
     if current_prev:
       current_prev.next = self.prev
@@ -152,8 +152,8 @@ class DoublyLinkedList:
       return None
 
     maximum = self.head.value
-    
     cur_node = self.head
+    
     while cur_node:
       if cur_node.value > maximum:
         maximum = cur_node.value
